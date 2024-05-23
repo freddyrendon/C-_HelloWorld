@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Volumes/Fred Passport 1/dotner-course-code/HelloWorld/HelloWorld.csproj": {}
+    "/Volumes/Fred Passport/dotner-course-code/HelloWorld/HelloWorld.csproj": {}
   },
   "projects": {
-    "/Volumes/Fred Passport 1/dotner-course-code/HelloWorld/HelloWorld.csproj": {
+    "/Volumes/Fred Passport/dotner-course-code/HelloWorld/HelloWorld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Volumes/Fred Passport 1/dotner-course-code/HelloWorld/HelloWorld.csproj",
+        "projectUniqueName": "/Volumes/Fred Passport/dotner-course-code/HelloWorld/HelloWorld.csproj",
         "projectName": "HelloWorld",
-        "projectPath": "/Volumes/Fred Passport 1/dotner-course-code/HelloWorld/HelloWorld.csproj",
+        "projectPath": "/Volumes/Fred Passport/dotner-course-code/HelloWorld/HelloWorld.csproj",
         "packagesPath": "/Users/freddyrendon/.nuget/packages/",
-        "outputPath": "/Volumes/Fred Passport 1/dotner-course-code/HelloWorld/obj/",
+        "outputPath": "/Volumes/Fred Passport/dotner-course-code/HelloWorld/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/freddyrendon/.nuget/NuGet/NuGet.Config"
@@ -47,6 +47,10 @@
             "Dapper": {
               "target": "Package",
               "version": "[2.1.35, )"
+            },
+            "DotNetEnv": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             },
             "microsoft.data.sqlclient": {
               "target": "Package",

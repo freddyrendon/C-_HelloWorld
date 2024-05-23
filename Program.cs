@@ -6,6 +6,8 @@ using System.Runtime.CompilerServices;
 using Dapper;
 using HelloWorld.Models;
 using Microsoft.Data.SqlClient;
+using DotNetEnv;
+using HelloWorld.Data;
 
 
 namespace HelloWorld
@@ -14,16 +16,21 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            string connectionString = "Server=localhost;Database=DotNetCourseDatabase;TrustServerCertificate=true;Trusted_Connection=false;User Id=sa;Password=SQLConnect1";
+            DataContextDapper dapper = new DataContextDapper();
 
+            Env.Load();
 
-            IDbConnection dbConnection = new SqlConnection(connectionString);
+            var url = Environment.GetEnvironmentVariable("TEST");
+
+            Console.WriteLine("its working" + url);
+
 
             String sqlCommand = "SELECT GETDATE()";
 
-            DateTime rightNow = dbConnection.QuerySingle<DateTime>(sqlCommand);
+            DateTime rightNow = dapper.LoadDataSingle<DateTime>(sqlCommand);
 
             Console.WriteLine(rightNow.ToString());
+
 
 
             Computer myComputer = new Computer()
@@ -53,15 +60,17 @@ namespace HelloWorld
                         + myComputer.Price + ", '"
                         + myComputer.VideoCard + "')";
 
-            Console.WriteLine(sql);
+            // Console.WriteLine(sql);
 
-            int result = dbConnection.Execute(sql);
+            // int result = dapper.ExecuteSqlWithRowCount(sql);
+            bool result = dapper.ExecuteSql(sql);
+
 
             Console.WriteLine(result);
 
             string sqlSelect = @"SELECT * FROM TutorialAppSchema.computer";
 
-            IEnumerable<Computer> computers = dbConnection.Query<Computer>(sqlSelect);
+            IEnumerable<Computer> computers = dapper.LoadData<Computer>(sqlSelect);
 
             foreach (Computer computer in computers){
                 Console.WriteLine("Motherboard: " + computer.Motherboard);
