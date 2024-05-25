@@ -92,3 +92,7 @@ yarn-error.log*
 
 
 .env
+
+# Ignore bin/debug/net8.0 directory
+bin/Debug/net8.0/
+.fake
